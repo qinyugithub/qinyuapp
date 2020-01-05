@@ -1,1 +1,51 @@
-/* pages/index/index.wxss */
+.body{
+  background-color: #ff1f88;
+  height: 100vh;
+  position: relative;
+}
+.body:before{
+  content: "";
+  display: table;
+}
+.topinput{
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.topSwiper{
+  height: 350rpx;
+  margin: 96rpx 10rpx 0rpx 10rpx;
+}
+.swiperImage{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.typeShow{
+  display: flex;
+  margin: 10rpx;
+  border-radius: 10rpx;
+  padding: 10rpx 0rpx;
+  align-items: center;
+  background-color: #fff;
+}
+.typeItem{
+  /* border: 1px solid red; */
+  text-align: center;
+  border-radius: 10rpx;
+  padding: 8rpx 0;
+}
+.typeItem image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+.typeItem text{
+  /* display: block; */
+  font-size: 26rpx;
+  line-height: 26rpx;
+  margin-top: 0rpx;
+  color: #333;
+}

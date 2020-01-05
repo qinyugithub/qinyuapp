@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "van-button":"@vant/weapp/button"
-  }
+    "van-button":"@vant/weapp/button",
+    "van-search": "@vant/weapp/search",
+    "mp-searchbar": "/weui-miniprogram/searchbar/searchbar"
+  },
+  "disableScroll": true
 }

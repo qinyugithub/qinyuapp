@@ -1,14 +1,40 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/cart/cart",
+    "pages/my/my"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "买买",
+    "navigationBarTitleText": "会够",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "tabBar": {
+    "list":[
+      {
+        "text":"首页",
+        "pagePath":"pages/index/index",
+        "iconPath":"images/tabImages/index.png",
+        "selectedIconPath":"images/tabImages/index_cur.png"
+      },
+      {
+        "text":"购物车",
+        "pagePath":"pages/cart/cart",
+        "iconPath":"images/tabImages/cart.png",
+        "selectedIconPath":"images/tabImages/cart_cur.png"
+      },
+      {
+        "text":"我的",
+        "pagePath":"pages/my/my",
+        "iconPath":"images/tabImages/my.png",
+        "selectedIconPath":"images/tabImages/my_cur.png"
+      }
+    ],
+    "color":"#bfbfbf",
+    "selectedColor":"#ff1f88"
+  }
 }
