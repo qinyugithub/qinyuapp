@@ -1,36 +1,114 @@
-<view class="body">
-	<view class="topinput">
-		<view class="page">
-			<view class="page__bd">
-				<mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+<view class="topinput">
+	<view class="page">
+		<view class="page__bd">
+			<mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+		</view>
+	</view>
+</view>
+
+<swiper class="topSwiper" indicator-dots="true" indicator-color="#FFF" indicator-active-color="#ff1f88" autoplay="true" circular="true">
+	<block wx:for="{{swiperImages}}" wx:key="item">
+		<swiper-item>
+			<image class="swiperImage" src="{{item.url}}"></image>
+		</swiper-item>
+	</block>
+</swiper>
+
+<view class="typeShow">
+	<view class="typeItem">
+		<image src="../../images/typeImages/type1.jpg"></image>
+		<text>时令水果</text>
+	</view>
+	<view class="typeItem">
+		<image src="../../images/typeImages/type2.jpg"></image>
+		<text>新鲜蔬菜</text>
+	</view>
+	<view class="typeItem">
+		<image src="../../images/typeImages/type3.jpg"></image>
+		<text>粮油米面</text>
+	</view>
+	<view class="typeItem">
+		<image src="../../images/typeImages/type4.jpg"></image>
+		<text>日用百货</text>
+	</view>
+</view>
+
+<view class="storeList">
+	<text class="storeHeader">附近好店</text>
+	<navigator class="storeitem" url="/pages/storeList/storeList" hover-class="none">
+		<view class="storeImage">
+			<image src="../../images/storeicon.jpg"></image>
+		</view>
+		<view class="storeContent">
+			<text class="storeTitle">如意鲜果屋</text>
+			<view class="statBox">
+				<van-icon name="star" /><text class="starNum">4.8</text>
+				<text class="monthTotal">月售10086</text>
 			</view>
+			<view class="timeBox">
+				<text class="monthTotal">起送￥30</text>
+				<text class="monthTotal" style="margin-left:auto">60分钟</text>
+			</view>
+			<text class="showText styleOne">"价格实惠，值得推荐"</text>
+			<text class="showText styleTwo">新用户下单抢现金红包</text>
 		</view>
-	</view>
+	</navigator>
 
-	<swiper class="topSwiper" indicator-dots="true" indicator-color="#FFF" indicator-active-color="#ff1f88" autoplay="true" circular="true">
-		<block wx:for="{{swiperImages}}" wx:key="item">
-			<swiper-item>
-				<image class="swiperImage" src="{{item.url}}"></image>
-			</swiper-item>
-		</block>
-	</swiper>
+	<navigator class="storeitem" url="/pages/storeList/storeList" hover-class="none">
+		<view class="storeImage">
+			<image src="../../images/storeicon.jpg"></image>
+		</view>
+		<view class="storeContent">
+			<text class="storeTitle">如意鲜果屋</text>
+			<view class="statBox">
+				<van-icon name="star" /><text class="starNum">4.8</text>
+				<text class="monthTotal">月售10086</text>
+			</view>
+			<view class="timeBox">
+				<text class="monthTotal">起送￥30</text>
+				<text class="monthTotal" style="margin-left:auto">60分钟</text>
+			</view>
+			<text class="showText styleOne">"价格实惠，值得推荐"</text>
+			<text class="showText styleTwo">新用户下单抢现金红包</text>
+		</view>
+	</navigator>
 
-	<view class="typeShow">
-		<view class="typeItem">
-			<image src="../../images/typeImages/type1.jpg"></image>
-			<text>时另水果</text>
+	<navigator class="storeitem" url="/pages/storeList/storeList" hover-class="none">
+		<view class="storeImage">
+			<image src="../../images/storeicon.jpg"></image>
 		</view>
-		<view class="typeItem">
-			<image src="../../images/typeImages/type2.jpg"></image>
-			<text>新鲜蔬菜</text>
+		<view class="storeContent">
+			<text class="storeTitle">如意鲜果屋</text>
+			<view class="statBox">
+				<van-icon name="star" /><text class="starNum">4.8</text>
+				<text class="monthTotal">月售10086</text>
+			</view>
+			<view class="timeBox">
+				<text class="monthTotal">起送￥30</text>
+				<text class="monthTotal" style="margin-left:auto">60分钟</text>
+			</view>
+			<text class="showText styleOne">"价格实惠，值得推荐"</text>
+			<text class="showText styleTwo">新用户下单抢现金红包</text>
 		</view>
-		<view class="typeItem">
-			<image src="../../images/typeImages/type3.jpg"></image>
-			<text>粮油米面</text>
+	</navigator>
+
+	<navigator class="storeitem" url="/pages/storeList/storeList" hover-class="none">
+		<view class="storeImage">
+			<image src="../../images/storeicon.jpg"></image>
 		</view>
-		<view class="typeItem">
-			<image src="../../images/typeImages/type4.jpg"></image>
-			<text>日用百货</text>
+		<view class="storeContent">
+			<text class="storeTitle">如意鲜果屋</text>
+			<view class="statBox">
+				<van-icon name="star" /><text class="starNum">4.8</text>
+				<text class="monthTotal">月售10086</text>
+			</view>
+			<view class="timeBox">
+				<text class="monthTotal">起送￥30</text>
+				<text class="monthTotal" style="margin-left:auto">60分钟</text>
+			</view>
+			<text class="showText styleOne">"价格实惠，值得推荐"</text>
+			<text class="showText styleTwo">新用户下单抢现金红包</text>
 		</view>
-	</view>
+	</navigator>
+
 </view>

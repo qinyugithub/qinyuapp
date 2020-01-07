@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/cart/cart",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/storeList/storeList"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

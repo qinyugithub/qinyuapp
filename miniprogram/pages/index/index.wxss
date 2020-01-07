@@ -1,7 +1,5 @@
-.body{
+page {
   background-color: #ff1f88;
-  height: 100vh;
-  position: relative;
 }
 .body:before{
   content: "";
@@ -14,38 +12,128 @@
   left: 0;
   z-index: 100;
 }
+/***************************/
 .topSwiper{
+  margin: 58px 20rpx 0rpx 20rpx;
+  border-radius: 20rpx;
   height: 350rpx;
-  margin: 96rpx 10rpx 0rpx 10rpx;
+  overflow: hidden;
 }
 .swiperImage{
   width: 100%;
   height: 100%;
-  border-radius: 10rpx;
+  border-radius: 20rpx;
 }
+/***************************/
 .typeShow{
   display: flex;
-  margin: 10rpx;
-  border-radius: 10rpx;
+  margin: 20rpx;
+  border-radius: 20rpx;
   padding: 10rpx 0rpx;
   align-items: center;
   background-color: #fff;
 }
 .typeItem{
-  /* border: 1px solid red; */
-  text-align: center;
-  border-radius: 10rpx;
+  border-radius: 20rpx;
   padding: 8rpx 0;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  justify-content: center;
+  align-items: center;
 }
 .typeItem image{
-  width: 160rpx;
-  height: 160rpx;
+  width: 150rpx;
+  height: 150rpx;
   border-radius: 50%;
+  box-shadow: 10rpx 0rpx 10rpx #828282;
 }
 .typeItem text{
-  /* display: block; */
   font-size: 26rpx;
   line-height: 26rpx;
-  margin-top: 0rpx;
+  margin-top: 10rpx;
   color: #333;
+}
+/***************************/
+.storeList{
+  border-radius: 20rpx;
+  background-color: #fff;
+  margin: 20rpx;
+  padding: 20rpx;
+}
+.storeHeader{
+  display: block;
+  color: #000;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 6rpx;
+}
+.storeTitle{
+  font-size: 34rpx;
+  line-height: 34rpx;
+  font-weight: bold;
+  display: block;
+}
+.storeitem{
+  display: flex;
+  margin-bottom: 28rpx;
+}
+.storeitem .storeImage{
+  height: 180rpx;
+  width: 180rpx;
+  flex-shrink: 0;
+  padding: 10rpx;
+}
+.storeitem .storeImage image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.storeitem .storeContent{
+  width: 100%;
+  padding: 10rpx 0rpx 15rpx 0rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-bottom: 1rpx solid rgb(228, 228, 228);
+}
+.storeContent>text,.storeContent>view{
+  margin-bottom: 14rpx;
+}
+.statBox{
+  color: #ff1f88;
+  display: flex;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 24rpx;
+}
+.timeBox{
+  width: 100%;
+  display: flex;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 24rpx;
+}
+.starNum{
+  margin:  0rpx 20rpx 0rpx 10rpx;
+}
+.monthTotal{
+  color: #666;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  display: block;
+}
+.showText{
+  display: inline-block;
+  font-size: 20rpx;
+  line-height: 24rpx;
+  padding: 2rpx 6rpx;
+  color: #ff5000;
+  border-radius: 4rpx;
+}
+.styleOne{
+background-color: #ffd3bf;
+}
+.styleTwo{
+  border: .5rpx solid #ff5000;
 }

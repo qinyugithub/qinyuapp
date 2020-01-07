@@ -1,19 +1,23 @@
-const db = wx.cloud.database();
-const swiperImages = db.collection('swiperImages');
+// pages/storeList/storeList.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    swiperImages: []
+    activeKey: 0
+  },
+  onChange(event) {
+    wx.showToast({
+      icon: 'none',
+      title: `切换至第${event.detail}项`
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initSwiper();
     this.setData({
       search: this.search.bind(this)
     })
@@ -36,18 +40,6 @@ Page({
     console.log('select result', e.detail)
   },
 
-
-  /**
-   * 初始化轮播图
-   */
-  initSwiper: function () {
-    swiperImages.get().then(res => {
-      this.setData({
-        swiperImages: res.data
-      })
-    })
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -59,7 +51,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // wx.hideHomeButton();
   },
 
   /**

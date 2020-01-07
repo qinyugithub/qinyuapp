@@ -1,0 +1,117 @@
+.topinput{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+/* ********************** */
+
+.leftBarBox{
+  position: fixed;
+  top: 48px;
+  left: 0rpx;
+}
+
+.fruitList{
+  height: 800rpx;
+  margin-top: 48px;
+  margin-left: 85px;
+  border-left: 1rpx solid rgb(238, 238, 238);
+
+}
+.fruitItem{
+  display: flex;
+  margin-bottom: 8rpx;
+  padding-bottom: 8rpx;
+  border-bottom: 1rpx solid rgb(246, 246, 246);
+}
+.imageBox{
+  height: 200rpx;
+  width: 200rpx;
+  flex-shrink: 0;
+  padding: 10rpx;
+  box-sizing: border-box;
+}
+.imageBox image{
+  height: 100%;
+  width: 100%;
+  border-radius: 10rpx;
+}
+.detailBox{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+}
+.detailBox text{
+  margin-top: 14rpx;
+}
+.fruitName{
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #333;
+}
+.fruitDes{
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #666;
+}
+.fruitShow{
+  font-size: 20rpx;
+  line-height: 20rpx;
+  color: #ff5000;
+  padding: 4rpx;
+  border: 1rpx solid #ff5000;
+  border-radius: 4rpx;
+}
+.fruitPrice{
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #ff1f88;
+  font-weight: bold;
+}
+
+/* ********* */
+.bottom{
+  width: 100%;
+  border-top: 1rpx solid #ff1f88;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+}
+.cart{
+width: 100%;
+height: 100rpx;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+.cartImgBox{
+  height: 100rpx;
+  width: 100rpx;
+  box-sizing: border-box;
+  padding: 8rpx;
+  margin-left: 20rpx;
+}
+.cartImgBox image{
+  height: 100%;
+  width: 100%;
+}
+.totalPrice{
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.commit{
+  height: 100rpx;
+  width: 230rpx;
+  background-color: #ff1f88;
+  color: #FFF;
+  flex-shrink: 0;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 34rpx;
+}

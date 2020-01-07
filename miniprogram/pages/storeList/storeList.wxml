@@ -1,0 +1,43 @@
+<view class="topinput">
+	<view class="page">
+		<view class="page__bd">
+			<mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+		</view>
+	</view>
+</view>
+
+<view class="leftBarBox">
+	<van-sidebar active-key="{{ activeKey }}" bind:change="onChange">
+		<van-sidebar-item title="时令水果" />
+		<van-sidebar-item title="新鲜蔬菜" />
+		<van-sidebar-item title="粮油米面" />
+		<van-sidebar-item title="日用百货" />
+	</van-sidebar>
+</view>
+
+
+<view class="fruitList">
+
+	<view class="fruitItem">
+		<view class="imageBox">
+			<image src="../../images/storeicon.jpg"></image>
+		</view>
+		<view class="detailBox">
+			<text class="fruitName">高乐蜜芒果2个500g起</text>
+			<text class="fruitDes">广西现摘 尝尝我爆甜的心</text>
+			<text class="fruitShow">任选3件免1件</text>
+			<text class="fruitPrice">￥17.9</text>
+		</view>
+	</view>
+
+</view>
+
+<view class="bottom">
+	<view class="cart">
+		<view class="cartImgBox">
+			<image src="../../images/tabImages/cart_cur.png"></image>
+		</view>
+		<text class="totalPrice">￥16.8</text>
+	</view>
+	<view class="commit">差￥22.5起送</view>
+</view>

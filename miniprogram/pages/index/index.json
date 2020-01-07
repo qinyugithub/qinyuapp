@@ -1,8 +1,11 @@
 {
   "usingComponents": {
-    "van-button":"@vant/weapp/button",
-    "van-search": "@vant/weapp/search",
-    "mp-searchbar": "/weui-miniprogram/searchbar/searchbar"
+    "mp-searchbar": "/weui-miniprogram/searchbar/searchbar",
+    "van-icon": "@vant/weapp/icon"
   },
-  "disableScroll": true
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#ff1f88",
+  "navigationBarTitleText": "首页",
+  "navigationBarTextStyle": "black",
+  "backgroundColor":"#ff1f88"
 }
