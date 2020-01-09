@@ -1,0 +1,32 @@
+.count {
+  overflow: hidden;
+  width: 170rpx;
+}
+
+.count view {
+  font-size: 55rpx;
+  height: 50rpx;
+  width: 50rpx;
+  line-height: 45rpx;
+  text-align: center;
+  border-radius: 50%;
+  float: right;
+  padding: 0rpx;
+  margin: 0rpx;
+}
+.del{
+  border: 2rpx solid #ff1f88;
+  background: #FFF;
+  color: #ff1f88;
+  box-sizing: border-box;
+}
+.add {
+  background: #ff1f88;
+  color: #FFF;
+}
+.count .num {
+  width: 70rpx;
+  color: #000;
+  font-size: 36rpx;
+  line-height: 50rpx;
+}

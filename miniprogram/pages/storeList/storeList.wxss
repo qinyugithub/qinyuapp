@@ -45,6 +45,12 @@
   align-items: flex-start;
   padding-top: 10rpx;
   box-sizing: border-box;
+  position: relative;
+}
+.detailBox .countBox{
+  position: absolute;
+  right: 20rpx;
+  bottom: 14rpx;
 }
 .detailBox text{
   margin-top: 14rpx;
@@ -82,6 +88,7 @@
   left: 0;
   bottom: 0;
   display: flex;
+  z-index: 1000;
 }
 .cart{
 width: 100%;
@@ -89,13 +96,13 @@ height: 100rpx;
 display: flex;
 justify-content: flex-start;
 align-items: center;
+background-color: #fff;
 }
 .cartImgBox{
   height: 100rpx;
   width: 100rpx;
   box-sizing: border-box;
-  padding: 8rpx;
-  margin-left: 20rpx;
+  margin-left: 30rpx;
 }
 .cartImgBox image{
   height: 100%;
@@ -104,6 +111,7 @@ align-items: center;
 .totalPrice{
   font-size: 36rpx;
   font-weight: bold;
+  margin-left: 20rpx;
 }
 .commit{
   height: 100rpx;
@@ -114,4 +122,15 @@ align-items: center;
   line-height: 100rpx;
   text-align: center;
   font-size: 34rpx;
+}
+.cartContent{
+  padding: 100rpx 0rpx;
+}
+.cartList{
+  max-height: 50vh;
+  overflow-y: auto;
+  border: 10rpx solid blue;
+}
+.cartItme{
+  height: 1000rpx;
 }

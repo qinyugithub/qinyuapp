@@ -58,6 +58,12 @@
 					"pathName": "pages/storeList/storeList",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "testComponse",
+					"pathName": "pages/cart/cart",
+					"scene": null
 				}
 			]
 		}

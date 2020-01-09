@@ -15,27 +15,27 @@
   "sitemapLocation": "sitemap.json",
   "style": "v2",
   "tabBar": {
-    "list":[
+    "list": [
       {
-        "text":"首页",
-        "pagePath":"pages/index/index",
-        "iconPath":"images/tabImages/index.png",
-        "selectedIconPath":"images/tabImages/index_cur.png"
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tabImages/index.png",
+        "selectedIconPath": "images/tabImages/index_cur.png"
       },
       {
-        "text":"购物车",
-        "pagePath":"pages/cart/cart",
-        "iconPath":"images/tabImages/cart.png",
-        "selectedIconPath":"images/tabImages/cart_cur.png"
+        "text": "购物车",
+        "pagePath": "pages/cart/cart",
+        "iconPath": "images/tabImages/cart.png",
+        "selectedIconPath": "images/tabImages/cart_cur.png"
       },
       {
-        "text":"我的",
-        "pagePath":"pages/my/my",
-        "iconPath":"images/tabImages/my.png",
-        "selectedIconPath":"images/tabImages/my_cur.png"
+        "text": "我的",
+        "pagePath": "pages/my/my",
+        "iconPath": "images/tabImages/my.png",
+        "selectedIconPath": "images/tabImages/my_cur.png"
       }
     ],
-    "color":"#bfbfbf",
-    "selectedColor":"#ff1f88"
+    "color": "#bfbfbf",
+    "selectedColor": "#ff1f88"
   }
 }

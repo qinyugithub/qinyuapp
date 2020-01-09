@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    activeKey: 0
+    activeKey: 0,
+    show :false
+  },
+  pageData:{
+    exc:true //动画是否执行
   },
   onChange(event) {
     wx.showToast({
@@ -20,7 +24,7 @@ Page({
   onLoad: function (options) {
     this.setData({
       search: this.search.bind(this)
-    })
+    });
   },
 
   search: function (value) {
@@ -40,52 +44,38 @@ Page({
     console.log('select result', e.detail)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onChangeCount (e) {
+    console.log(e.detail);
+    if(e.detail.currentType === "add"){
+      this.cartAnimate();
+    }
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 购物车摇动动画
    */
-  onShow: function () {
-    // wx.hideHomeButton();
+  cartAnimate:function(){
+    if(this.pageData.exc){
+      this.pageData.exc=false;
+      this.animate('#cartImg', [
+        {rotateZ: 0},
+        {rotateZ: 20},
+        {rotateZ: -20},
+        {rotateZ: 20},
+        {rotateZ: -20},
+        {rotateZ: 20},
+        {rotateZ: 0}
+        ], 500, function () {
+          this.clearAnimation('#cartImg', { rotate: true }, function () {});
+          this.pageData.exc=true;
+      }.bind(this));
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  showPopup() {
+    this.setData({ show: true });
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onClose() {
+    this.setData({ show: false });
   }
+
 })

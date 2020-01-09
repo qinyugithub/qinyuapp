@@ -1,0 +1,5 @@
+<view class='count'>
+	<view class='add' bindtap='bindAdd'>+</view>
+	<view class='num' hidden="{{hiddenButton}}"> {{num}} </view>
+	<view class='del' hidden="{{hiddenButton}}" bindtap='bindDel'>-</view>
+</view>
