@@ -1,4 +1,5 @@
-// pages/storeList/storeList.js
+const db = wx.cloud.database();
+const goods = db.collection('goods');
 Page({
 
   /**
@@ -6,25 +7,62 @@ Page({
    */
   data: {
     activeKey: 0,
-    show :false
+    show: false,
+    fruitList: []
   },
-  pageData:{
-    exc:true //动画是否执行
+  pageData: {
+    exc: true, //动画是否执行
+    fruitList: {} //缓存池
+  },
+  initTopSearch: function () {
+    this.setData({
+      search: this.search.bind(this)
+    });
   },
   onChange(event) {
-    wx.showToast({
-      icon: 'none',
-      title: `切换至第${event.detail}项`
-    });
+    this.searchByIndex(event.detail);
+  },
+  /**
+   * 通过类别查询
+   */
+  searchByIndex: function (typeIndex) {
+    var fl = this.pageData.fruitList[typeIndex];
+    if (!(fl === undefined)) {
+      this.setData({
+        fruitList: fl
+      })
+      return;
+    }
+    wx.showLoading({
+      title: '加载中',
+    })
+    goods.where({
+      key: typeIndex
+    }).get().then(res => {
+      wx.hideLoading();
+      this.setData({
+        fruitList: res.data
+      })
+      this.pageData.fruitList[typeIndex] = res.data; //加入缓存池
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      search: this.search.bind(this)
-    });
+    this.initTopSearch();
+    this.initFruitList(options.index); //初始化水果列表
+  },
+
+  initFruitList: function (index) {
+    var currentIndex = index || 0;
+    if (currentIndex) {
+      this.setData({
+        activeKey: currentIndex
+      })
+    }
+    this.searchByIndex(parseInt(currentIndex));
   },
 
   search: function (value) {
@@ -44,9 +82,9 @@ Page({
     console.log('select result', e.detail)
   },
 
-  onChangeCount (e) {
+  onChangeCount(e) {
     console.log(e.detail);
-    if(e.detail.currentType === "add"){
+    if (e.detail.currentType === "add") {
       this.cartAnimate();
     }
   },
@@ -54,28 +92,47 @@ Page({
   /**
    * 购物车摇动动画
    */
-  cartAnimate:function(){
-    if(this.pageData.exc){
-      this.pageData.exc=false;
-      this.animate('#cartImg', [
-        {rotateZ: 0},
-        {rotateZ: 20},
-        {rotateZ: -20},
-        {rotateZ: 20},
-        {rotateZ: -20},
-        {rotateZ: 20},
-        {rotateZ: 0}
-        ], 500, function () {
-          this.clearAnimation('#cartImg', { rotate: true }, function () {});
-          this.pageData.exc=true;
+  cartAnimate: function () {
+    if (this.pageData.exc) {
+      this.pageData.exc = false;
+      this.animate('#cartImg', [{
+          rotateZ: 0
+        },
+        {
+          rotateZ: 20
+        },
+        {
+          rotateZ: -20
+        },
+        {
+          rotateZ: 20
+        },
+        {
+          rotateZ: -20
+        },
+        {
+          rotateZ: 20
+        },
+        {
+          rotateZ: 0
+        }
+      ], 500, function () {
+        this.clearAnimation('#cartImg', {
+          rotate: true
+        }, function () {});
+        this.pageData.exc = true;
       }.bind(this));
     }
   },
   showPopup() {
-    this.setData({ show: true });
+    this.setData({
+      show: true
+    });
   },
   onClose() {
-    this.setData({ show: false });
+    this.setData({
+      show: false
+    });
   }
 
 })

@@ -1,19 +1,19 @@
 const db = wx.cloud.database();
-const swiperImages = db.collection('swiperImages');
+const config = db.collection('config');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    swiperImages: []
+    pageConfig: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.initSwiper();
+    this.initPage();
     this.setData({
       search: this.search.bind(this)
     })
@@ -38,12 +38,12 @@ Page({
 
 
   /**
-   * 初始化轮播图
+   * 初始化页面
    */
-  initSwiper: function () {
-    swiperImages.get().then(res => {
+  initPage: function () {
+    config.get().then(res => {
       this.setData({
-        swiperImages: res.data
+        pageConfig: res.data[0].pageConfig
       })
     })
   },

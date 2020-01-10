@@ -1,1 +1,15 @@
-/* pages/my/my.wxss */
+.userInfo {
+  /* border: 1rpx solid red; */
+  height:300rpx;
+}
+.imageBox {
+  width: 200rpx;
+  height: 200rpx;
+  margin: 20rpx auto 10rpx auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.nameBox {
+  font-size: 34rpx;
+  text-align: center;
+}

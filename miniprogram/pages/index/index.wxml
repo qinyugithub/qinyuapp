@@ -7,30 +7,20 @@
 </view>
 
 <swiper class="topSwiper" indicator-dots="true" indicator-color="#FFF" indicator-active-color="#ff1f88" autoplay="true" circular="true">
-	<block wx:for="{{swiperImages}}" wx:key="item">
+	<block wx:for="{{pageConfig.swiperImages}}" wx:key="item">
 		<swiper-item>
-			<image class="swiperImage" src="{{item.url}}"></image>
+			<image class="swiperImage" src="{{item}}"></image>
 		</swiper-item>
 	</block>
 </swiper>
 
 <view class="typeShow">
-	<view class="typeItem">
-		<image src="../../images/typeImages/type1.jpg"></image>
-		<text>时令水果</text>
-	</view>
-	<view class="typeItem">
-		<image src="../../images/typeImages/type2.jpg"></image>
-		<text>新鲜蔬菜</text>
-	</view>
-	<view class="typeItem">
-		<image src="../../images/typeImages/type3.jpg"></image>
-		<text>粮油米面</text>
-	</view>
-	<view class="typeItem">
-		<image src="../../images/typeImages/type4.jpg"></image>
-		<text>日用百货</text>
-	</view>
+	<block wx:for="{{pageConfig.typeImages}}" wx:key="item">
+	<navigator class="typeItem" url="/pages/storeList/storeList?index={{index}}" hover-class="none">
+		<image src="{{item.url}}"></image>
+		<text>{{item.name}}</text>
+	</navigator>
+	</block>
 </view>
 
 <view class="storeList">

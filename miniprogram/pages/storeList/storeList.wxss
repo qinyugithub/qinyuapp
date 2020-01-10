@@ -52,8 +52,8 @@
   right: 20rpx;
   bottom: 14rpx;
 }
-.detailBox text{
-  margin-top: 14rpx;
+.detailBox>text{
+  margin-top: 18rpx;
 }
 .fruitName{
   font-size: 30rpx;
@@ -65,11 +65,15 @@
   line-height: 24rpx;
   color: #666;
 }
+.showBox{
+  height: 20rpx;
+  font-size: 0;
+}
 .fruitShow{
   font-size: 20rpx;
   line-height: 20rpx;
+  padding: 2rpx 4rpx;
   color: #ff5000;
-  padding: 4rpx;
   border: 1rpx solid #ff5000;
   border-radius: 4rpx;
 }

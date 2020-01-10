@@ -18,35 +18,24 @@
 
 <view class="fruitList">
 
-	<view class="fruitItem">
-		<view class="imageBox">
-			<image src="../../images/storeicon.jpg"></image>
-		</view>
-		<view class="detailBox">
-			<text class="fruitName">高乐蜜芒果2个500g起</text>
-			<text class="fruitDes">广西现摘 尝尝我爆甜的心</text>
-			<text class="fruitShow">任选3件免1件</text>
-			<text class="fruitPrice">￥17.9</text>
-			<view class="countBox">
-				<count num='{{num}}' bind:changeCount='onChangeCount'></count>
+	<block wx:for="{{fruitList}}" wx:key="item">
+		<view class="fruitItem">
+			<view class="imageBox">
+				<image src="{{item.image}}"></image>
+			</view>
+			<view class="detailBox">
+				<text class="fruitName">{{item.title}}</text>
+				<text class="fruitDes">{{item.remarks}}</text>
+				<text class="showBox">
+					<text wx:if="{{item.activity}}" class="fruitShow">{{item.activity}}</text>
+				</text>
+				<text class="fruitPrice">￥{{item.price}}</text>
+				<view class="countBox">
+					<count num='{{num}}' bind:changeCount='onChangeCount'></count>
+				</view>
 			</view>
 		</view>
-	</view>
-
-	<view class="fruitItem">
-		<view class="imageBox">
-			<image src="../../images/storeicon.jpg"></image>
-		</view>
-		<view class="detailBox">
-			<text class="fruitName">高乐蜜芒果2个500g起</text>
-			<text class="fruitDes">广西现摘 尝尝我爆甜的心</text>
-			<text class="fruitShow">任选3件免1件</text>
-			<text class="fruitPrice">￥17.9</text>
-			<view class="countBox">
-				<count bind:changeCount='onChangeCount'></count>
-			</view>
-		</view>
-	</view>
+	</block>
 
 </view>
 
