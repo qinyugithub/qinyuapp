@@ -8,11 +8,13 @@ Page({
   data: {
     activeKey: 0,
     show: false,
-    fruitList: []
+    fruitList: [],
   },
   pageData: {
     exc: true, //动画是否执行
-    fruitList: {} //缓存池
+    calculationTimer:null, //节流计时器
+    fruitList: {}, //缓存池
+    minPrice: 30 //满减规则
   },
   initTopSearch: function () {
     this.setData({
@@ -26,6 +28,9 @@ Page({
    * 通过类别查询
    */
   searchByIndex: function (typeIndex) {
+    this.setData({ //去除组件的残留信息
+      fruitList: []
+    })
     var fl = this.pageData.fruitList[typeIndex];
     if (!(fl === undefined)) {
       this.setData({
@@ -51,6 +56,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(wx.getStorageSync('goods'));
     this.initTopSearch();
     this.initFruitList(options.index); //初始化水果列表
   },
@@ -83,12 +89,17 @@ Page({
   },
 
   onChangeCount(e) {
-    console.log(e.detail);
+    this.doCalculation();
     if (e.detail.currentType === "add") {
       this.cartAnimate();
+    };
+  },
+  settlement: function () {
+    var componentList = this.selectAllComponents(".goodsCount");
+    for (var i = 0; i < componentList.length; i++) {
+      componentList[i].initNum();
     }
   },
-
   /**
    * 购物车摇动动画
    */
@@ -133,6 +144,32 @@ Page({
     this.setData({
       show: false
     });
+  },
+  /**
+   * 计算总价
+   */
+  caTotalPrice: function () {
+    var total = 0,
+      goodsItem = wx.getStorageSync('goods');
+
+      for (let key in goodsItem) {
+        if (goodsItem.hasOwnProperty(key)) {
+          let im = goodsItem[key];
+          total += (parseFloat(im.price) * parseFloat(im.num));
+        }
+      }
+
+      this.setData({
+        totalPrice: Math.floor(total * 100) /100
+      })
+      
+  },
+  /**
+   * 节流
+   */
+  doCalculation:function(){
+    clearTimeout(this.pageData.calculationTimer);
+    this.pageData.calculationTimer = setTimeout(this.caTotalPrice,500)
   }
 
 })

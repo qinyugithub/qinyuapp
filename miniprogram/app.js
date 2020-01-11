@@ -14,7 +14,13 @@ App({
         traceUser: true,
       })
     }
-
+    this.initStorage();
     this.globalData = {}
+  },
+  initStorage:function(){
+    var stor = wx.getStorageSync('goods');
+    if(!stor){
+      wx.setStorageSync("goods", {});
+    }
   }
 })

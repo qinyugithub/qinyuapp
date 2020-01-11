@@ -31,7 +31,7 @@
 				</text>
 				<text class="fruitPrice">￥{{item.price}}</text>
 				<view class="countBox">
-					<count num='{{num}}' bind:changeCount='onChangeCount'></count>
+					<count class="goodsCount" fruitItem='{{item}}' bind:changeCount='onChangeCount'></count>
 				</view>
 			</view>
 		</view>
@@ -44,9 +44,9 @@
 		<view class="cartImgBox">
 			<image id="cartImg" src="../../images/tabImages/cart_buttom.png"></image>
 		</view>
-		<text class="totalPrice">￥16.8</text>
+		<text class="totalPrice">￥{{totalPrice}}</text>
 	</view>
-	<view class="commit">差￥22.5起送</view>
+	<view class="commit" bindtap="settlement">差多少起送</view>
 </view>
 
 <van-popup show="{{ show }}" closeable position="bottom" bind:close="onClose">
