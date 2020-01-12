@@ -6,20 +6,28 @@
 	</view>
 </view>
 
-<swiper class="topSwiper" indicator-dots="true" indicator-color="#FFF" indicator-active-color="#ff1f88" autoplay="true" circular="true">
-	<block wx:for="{{pageConfig.swiperImages}}" wx:key="item">
-		<swiper-item>
-			<image class="swiperImage" src="{{item}}"></image>
-		</swiper-item>
-	</block>
-</swiper>
+<view class="adBar">
+	<view class="topAd" wx:if="{{pageConfig.noticeBar.ifNotice}}">
+		<van-notice-bar mode="closeable" left-icon="{{pageConfig.noticeBar.iconUrl}}" text="{{pageConfig.noticeBar.content}}" speed="30"/>
+	</view>
+
+	<swiper class="topSwiper" indicator-dots="true" indicator-color="#FFF" indicator-active-color="#ff1f88" autoplay="true" circular="true">
+		<block wx:for="{{pageConfig.swiperImages}}" wx:key="item">
+			<swiper-item>
+				<image class="swiperImage" src="{{item}}"></image>
+			</swiper-item>
+		</block>
+	</swiper>
+</view>
+
+
 
 <view class="typeShow">
 	<block wx:for="{{pageConfig.typeImages}}" wx:key="item">
-	<navigator class="typeItem" url="/pages/storeList/storeList?index={{index}}" hover-class="none">
-		<image src="{{item.url}}"></image>
-		<text>{{item.name}}</text>
-	</navigator>
+		<navigator class="typeItem" url="/pages/storeList/storeList?index={{index}}" hover-class="none">
+			<image src="{{item.url}}"></image>
+			<text>{{item.name}}</text>
+		</navigator>
 	</block>
 </view>
 

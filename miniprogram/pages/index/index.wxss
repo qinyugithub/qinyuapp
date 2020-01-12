@@ -13,8 +13,20 @@ page {
   z-index: 100;
 }
 /***************************/
+.adBar{
+  margin: 48px 0rpx 0rpx 0rpx;
+  overflow: hidden;
+}
+.adBar:befroe{
+  content: "";
+  display: table;
+}
+.topAd{
+
+}
+/***************************/
 .topSwiper{
-  margin: 58px 20rpx 0rpx 20rpx;
+  margin: 20rpx 20rpx 0rpx 20rpx;
   border-radius: 20rpx;
   height: 350rpx;
   overflow: hidden;

@@ -113,9 +113,10 @@ background-color: #fff;
   width: 100%;
 }
 .totalPrice{
-  font-size: 36rpx;
+  font-size: 46rpx;
   font-weight: bold;
   margin-left: 20rpx;
+  color: #e1251b;
 }
 .commit{
   height: 100rpx;
@@ -133,8 +134,4 @@ background-color: #fff;
 .cartList{
   max-height: 50vh;
   overflow-y: auto;
-  border: 10rpx solid blue;
-}
-.cartItme{
-  height: 1000rpx;
 }

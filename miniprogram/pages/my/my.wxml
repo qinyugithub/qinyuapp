@@ -9,12 +9,12 @@
 
 <mp-cells title="个人中心">
 	<mp-cell link hover url="../index" value="我的订单">
-		<image slot="title" src="../../images/tabImages/index_cur.png" style="margin-right: 16px;vertical-align: middle;width:35px; height: 35px;"></image>
+		<image slot="title" src="../../images/tabImages/wddd.png" style="margin-right: 16px;vertical-align: middle;width:35px; height: 35px;"></image>
 	</mp-cell>
 	<mp-cell link hover url="../index" value="我的收货地址">
-		<image slot="title" src="../../images/tabImages/index_cur.png" style="margin-right: 16px;vertical-align: middle;width:35px; height: 35px;"></image>
+		<image slot="title" src="../../images/tabImages/wdshdz.png" style="margin-right: 16px;vertical-align: middle;width:35px; height: 35px;"></image>
 	</mp-cell>
 	<mp-cell link hover url="../index" value="联系客服">
-		<image slot="title" src="../../images/tabImages/index_cur.png" style="margin-right: 16px;vertical-align: middle;width:35px; height: 35px;"></image>
+		<image slot="title" src="../../images/tabImages/lxkf.png" style="margin-right: 16px;vertical-align: middle;width:35px; height: 35px;"></image>
 	</mp-cell>
 </mp-cells>

@@ -46,13 +46,13 @@
 		</view>
 		<text class="totalPrice">￥{{totalPrice}}</text>
 	</view>
-	<view class="commit" bindtap="settlement">差多少起送</view>
+	<view class="commit" bindtap="settlement">{{settleText}}</view>
 </view>
 
-<van-popup show="{{ show }}" closeable position="bottom" bind:close="onClose">
+<van-popup show="{{ show }}" closeable position="bottom" bind:close="onClose" bind:before-enter="enterPopup">
 	<view class="cartContent">
 		<view class="cartList">
-			<view class="cartItme"></view>
+		<bottomcart id="bottomList" bind:updateOuter="updateOuter"></bottomcart>
 		</view>
 	</view>
 </van-popup>

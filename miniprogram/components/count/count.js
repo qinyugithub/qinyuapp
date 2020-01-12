@@ -7,7 +7,7 @@ Component({
       type: Object,  // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
       value: {}
     },
-    inquiry:{
+    inquiry:{  //删除最后一件时是否询问
       type: Boolean,  
       value: false
     }
@@ -85,6 +85,9 @@ Component({
     updateForDel:function(srorageList,currentId){
       if(srorageList[currentId].num === 0){
         delete srorageList[currentId];
+        this.setData({
+          num: 0
+        })
       }
       wx.setStorageSync("goods", srorageList);//对象存储索引效率更高
       this.delAnimation();
@@ -126,6 +129,7 @@ Component({
     },
 
     initCount:function(){
+      //当外部调用是会出现 item 存在，而 goodsItem 没有的情况
       var item = this.data.fruitItem,
           goodsItem = wx.getStorageSync('goods')[item._id];
       if( goodsItem && goodsItem.num !==0){
@@ -133,11 +137,17 @@ Component({
           num: goodsItem.num,
           hiddenButton: false,
         })
+      }else{
+        this.setData({
+          hiddenButton: true,
+        })
       }
     },
-
+    /**
+     * 供外部组件调用实现视图同步
+     */
     initNum(){
-      console.log("我是组件内部的方法");
+      this.initCount();
     }
   }
 })

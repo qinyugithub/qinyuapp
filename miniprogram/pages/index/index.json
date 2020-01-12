@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "mp-searchbar": "/weui-miniprogram/searchbar/searchbar",
-    "van-icon": "@vant/weapp/icon"
+    "van-icon": "@vant/weapp/icon",
+    "van-notice-bar": "@vant/weapp/notice-bar"
   },
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#ff1f88",

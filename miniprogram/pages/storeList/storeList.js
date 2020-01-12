@@ -9,6 +9,7 @@ Page({
     activeKey: 0,
     show: false,
     fruitList: [],
+    settleText:""
   },
   pageData: {
     exc: true, //动画是否执行
@@ -22,6 +23,9 @@ Page({
     });
   },
   onChange(event) {
+    if(event.detail == this.data.activeKey){
+      return;
+    }
     this.searchByIndex(event.detail);
   },
   /**
@@ -34,7 +38,8 @@ Page({
     var fl = this.pageData.fruitList[typeIndex];
     if (!(fl === undefined)) {
       this.setData({
-        fruitList: fl
+        fruitList: fl,
+        activeKey: typeIndex
       })
       return;
     }
@@ -46,7 +51,8 @@ Page({
     }).get().then(res => {
       wx.hideLoading();
       this.setData({
-        fruitList: res.data
+        fruitList: res.data,
+        activeKey: typeIndex
       })
       this.pageData.fruitList[typeIndex] = res.data; //加入缓存池
     })
@@ -56,9 +62,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(wx.getStorageSync('goods'));
     this.initTopSearch();
     this.initFruitList(options.index); //初始化水果列表
+    this.caTotalPrice(); //计算总价
   },
 
   initFruitList: function (index) {
@@ -93,12 +99,6 @@ Page({
     if (e.detail.currentType === "add") {
       this.cartAnimate();
     };
-  },
-  settlement: function () {
-    var componentList = this.selectAllComponents(".goodsCount");
-    for (var i = 0; i < componentList.length; i++) {
-      componentList[i].initNum();
-    }
   },
   /**
    * 购物车摇动动画
@@ -151,18 +151,39 @@ Page({
   caTotalPrice: function () {
     var total = 0,
       goodsItem = wx.getStorageSync('goods');
-
       for (let key in goodsItem) {
-        if (goodsItem.hasOwnProperty(key)) {
-          let im = goodsItem[key];
-          total += (parseFloat(im.price) * parseFloat(im.num));
+        let item = goodsItem[key];
+        //对象中过滤存在的函数
+        if (typeof(item) === "object") {
+          total += (item.price * item.num);
+        }else{
+          console.log("过滤函数");
         }
       }
+      this.formatTotal(total);
+  },
+ 
+  /**
+   * 处理总价格并赋值
+   */
+  formatTotal:function(total){
+    let numStr = total.toFixed(4).toString(),
+        result = Number( numStr.substring(0,numStr.indexOf(".")+3) ),
+        difStr = (this.pageData.minPrice - result).toFixed(4).toString(),
+        difference =  Number(difStr.substring(0,difStr.indexOf(".")+3));
 
+
+    if(difference <=0){
       this.setData({
-        totalPrice: Math.floor(total * 100) /100
+        totalPrice: result,
+        settleText:"去结算"
       })
-      
+    }else{
+      this.setData({
+        totalPrice: result,
+        settleText:"差￥"+difference+"起送"
+      })
+    }
   },
   /**
    * 节流
@@ -170,6 +191,28 @@ Page({
   doCalculation:function(){
     clearTimeout(this.pageData.calculationTimer);
     this.pageData.calculationTimer = setTimeout(this.caTotalPrice,500)
-  }
+  },
+  /**
+   * popup进入前初始化数据
+   */
+  enterPopup:function(){
+    var bottomComponent = this.selectComponent("#bottomList");
+    bottomComponent.initBottomCart(0);
+  },
+  /**
+   * 购物车更新时同步外层组件
+   */
+  updateOuter:function(e){
+    this.onChangeCount({
+      detail:e.detail
+    });
+    this.settlement();
+  },
+  settlement: function () {
+    var componentList = this.selectAllComponents(".goodsCount");
+    for (var i = 0; i < componentList.length; i++) {
+      componentList[i].initNum();
+    }
+  },
 
 })

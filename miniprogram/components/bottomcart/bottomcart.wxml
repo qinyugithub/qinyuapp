@@ -1,0 +1,16 @@
+<view class="bottomcart">
+	<view class="header">已选商品</view>
+	<view class="goodsList">
+
+		<block wx:for="{{goodsList}}" wx:key="item">
+			<view class="goodsItem">
+				<text class="goodsName">{{item.title}}</text>
+				<text class="prize">￥{{item.goodTotal}}</text>
+				<view class="countBox">
+        	<count inquiry="true" fruitItem='{{item}}' bind:changeCount='onChangeCount'></count>
+        </view>
+			</view>
+		</block>
+
+	</view>
+</view>
